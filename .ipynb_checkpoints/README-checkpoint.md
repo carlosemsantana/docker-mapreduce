@@ -58,14 +58,14 @@ Para ilustrarmos este exemplo, vamos aproveitar o dataset gravado no artigo ante
 Datasert: [https://github.com/carlosemsantana/docker-mysql-hdfs](https://github.com/carlosemsantana/docker-mysql-hdfs)
 
 
-### Coleta dos dados
+#### Coleta dos dados
 
 
 
 A primeira tarefa seria importar os dados do banco de dados relacional que está no Provedor de Serviços e gravar no HDFS. Esta é uma das atividades do Engenheiro de Dados, porém, em algumas situações o Cientista de Dados precisará exercer temporariamente este papel.
 
 
-### Examinar os dados
+#### Examinar os dados
 
 
 Quando terminar atividade de coleta de dados, copie os arquivos gerados do HDFS para sua máquina local para que possa examinar e entender os dados.
@@ -122,7 +122,7 @@ Neste exercício o que precisamos responder: Quantas transações e-commerce rea
 Estamos prontos para criar o programa que irá contabilizar registros e gerar a resposta para o cliente.
 
 
-### Programação
+#### Programação
 
 
 Para nos ajudar a escrever e executar jobs mapreduce usaremos a biblioteca open source [MRJOB](https://github.com/Yelp/mrjob) para Python.
@@ -135,8 +135,15 @@ $ pip install mrjob
 ```
 <!-- #endregion -->
 
-Pronto! crie um arquivo de configuração do mrjob com nome de ```.mrjob.conf``` no diretório home do usuário hadoop.
+<!-- #region -->
+Pronto! crie um arquivo de configuração do mrjob com nome de ```.mrjob.conf``` no diretório home do usuário hadoop, com seguinte conteúdo e identação: 
 
+```bash
+runners: 
+	hadoop:
+		python_bin: /home/hadoop/anaconda3/bin/python
+```
+<!-- #endregion -->
 
 <!-- #region -->
 ```bash 
@@ -144,93 +151,22 @@ $ touch /home/hadoop/.mrjob.conf
 ```
 <!-- #endregion -->
 
-Edite o arquivo:
-
-<!-- #region -->
-```bash 
-$ nano /home/hadoop/.mrjob.conf 
-```
-<!-- #endregion -->
-
-Copie o código abaixo para o arquivo <b>.mrjob.conf </b> e mantenha a identação: 
-
-<!-- #region -->
-```bash
-runners: 
-	hadoop:
-		python_bin: /home/hadoop/anaconda3/bin/python```
-<!-- #endregion -->
-
-O próximo passo é escrever o programa em Python. Criei o AvaliaPedidos.py (código abaixo)
-
-<!-- #region -->
 ```python
-from mrjob.job import MRJob
-
-class MRAvaliaPedidos(MRJob):
-    def mapper(self, key, line):
-        (x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, status_pedido_codigo) = line.split(',')
-        yield status_pedido_codigo, 1
-
-    def reducer(self, status_pedido_codigo, ocorrencias):
-        yield status_pedido_codigo, sum(ocorrencias)
-
-if __name__ == '__main__':
-    MRAvaliaPedidos.run()
-    ```
-<!-- #endregion -->
-
-#### MRAvaliaPedidos(MRJob)
-
-
-Um Job é definido por uma classe que herda de MRJob. Esta classe contém métodos que definem as etapas do seu trabalho.<br>
-No script que foi criado temos: Uma “etapa” que consiste em um <b>mapper()</b> e um <b>reducer()</b>, porque temos apenas um passo.<br>
-O método <b>mapper()</b> usa uma chave e um valor como argumentos e produz quantos pares de chave-valor houver.<br>
-O método <b>reducer()</b> pega uma chave e um iterador de valores e também produz quantos pares de chave-valor houver.<br>
-(Nesse caso, ele soma os valores de cada chave, que representam o número de transações, por tipo de pedidos ou transações finalizadas na loja virtual.)
-
-
-### O que está acontecendo?
-
-
-![](img/analise.png)
-
-
-Na prática, o objeto criado <b>MRAvaliaPedidos()</b> lê o arquivo <b>part-m-00000</b> onde estão as transações que iremos analisar, ignora as colunas de x1 a x11 e contabiliza somente os valores encontrados na coluna <b>status_pedido_codigo</b>.
-
-
-### Testar o código
-
-
-Primeiro vamos testar o código na máquina local, usando o arquivo que foi copiado do DataLake com os registros das transações. Localmente não vamos trabalhar com o volume total dos dados, neste momento estamos avaliando o código e os resultados. Após a validação o programa será executado no Hadoop.
-
-<!-- #region -->
-```python
-$ python AvaliaPedidos.py part-m-00000 
+Script AvaliaFilme.py
 ```
-<!-- #endregion -->
 
-![](img/execucao1.png)
+```python
 
+```
 
-Examinando o resultado percebemos que os status estão sendo contabilizados.<p>
+```python
 
-<b>Os tipos de pedidos e respectivos códigos são:</b>
+```
 
-     - aprovados; 500, 501,600 = (480 + 12 + 908 = 1400)
-     - cancelados; 105,200,201,202 = (64 + 1862 + 30 = 1956)
-     - devolvidos; 700,800 = (1 + 11 = 12)
-     - abandonados; 100,101,102,103,300,400 = (18316 + 1159 = 19475)
+#### 4. Análise dos dados
 
 
-
-Feito! o código está funcionando. Copiaremos o programa para o ambiente do Hadoop.
-
-
-### Análise dos dados
-
-
-#### As fases da execução do job no Hadoop MapReuce são:
+### Workflow do MapReduce
 
 
 <b>Agendamento</b> - Os jobs são divididos em pedaços menores chamados tarefas. As tarefas são agendadas pelo YARN (Gerenciador de recursos).<br>
@@ -240,7 +176,7 @@ Feito! o código está funcionando. Copiaremos o programa para o ambiente do Had
 
 
 
-#### YARN
+### YARN
 
 
 Apache YARN é a camada de gerenciamento de recursos e agendamento de tarefas (jobs) do Hadoop, roda acima do HDFS. O Apache YARN é considerado 
@@ -255,76 +191,17 @@ se limita apenas ao MapReduce.
 
 
 
+```python
 
-#### Executando o programa AvaliaPedidos.py
-
-
-Primeiro localizarei onde está o arquivo de dados que foi gravado no Hadoop HDFS.
-
-<!-- #region -->
-```bash 
-$ hdfs dfs -ls /user/hadoop/pedido/part-m-00000
 ```
-<!-- #endregion -->
 
-![](img/ls2.png)
-
-
-Executando o JOB: Copie o AvaliaPedidos.py da máquina local para o ambiente Hadoop e execute.
-
-<!-- #region -->
-```bash 
-$ python AvaliaPedidos.py hdfs:///user/hadoop/pedido/part-m-00000 -r hadoop 
-```
-<!-- #endregion -->
-
-#### As fases da execução do AvaliaPedidos no Hadoop MapReuce são:
+# Resultados
 
 
-#### Fase 1 – Mapeamento
-
-A palavra reservada yield define qual das colunas será a chave (nesse caso a coluna status_pedido_codigo, pois queremos saber o total de transações que foram cancelados, aprovados e abandonados). Cada status_pedido_codigo é mapeado e identificado  com  o  valor  1,  registrando  a  ocorrência  do  status_pedido_codigo. 
+Assinatura
 
 
-![](img/mapred1.png)
-
-
-![](img/mapred2.png)
-
-
-#### Fase 2 – Shuffle e Sort
-
-Essa fase é processada automaticamente pelo framework MapReduce, que então agrupa os status_pedido_codigo e identifica quantas ocorrências cada status_pedido_codigo obteve ao longo do arquivo.
-
-
-
-![](img/mapred3.png)
-
-
-#### Fase 3 –Redução
-
-Esta fase aplica o cálculo matemático (no caso soma, com a função sum()) e retorna o resultado: total de transações com total de status_pedido_codigo 100,200 ,.., e 800
-
-
-![](img/mapred4.png)
-
-
-Pronto. Lá está a resposta que o cliente está aguardando. A próxima etapa deste mini-projeto seria: documentar, disponibilizar o programa, gerar um relatório e apresentar os resultados.
-
-
-### Conclusão
-
-
-Abordarmos através de exemplo hipotético simples como Apache Hadoop MapReduce tem a capacidade de fornecer às organizações uma forma eficiente de lidar com o volume. 
-
-
-Espero ter contribuido com o seu desenvolvimento de alguma forma.
-
-
-[Carlos Eugênio](https://carlosemsantana.github.io/)
-
-
-### Referências:
+# Referências:
 
 
 - [http://www.datascienceacademy.com.br](http://www.datascienceacademy.com.br)<br>
@@ -332,3 +209,7 @@ Espero ter contribuido com o seu desenvolvimento de alguma forma.
 - [https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)<br>
 - [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)<br>
 - [https://github.com/Yelp/mrjob](https://github.com/Yelp/mrjob);
+
+```python
+
+```
