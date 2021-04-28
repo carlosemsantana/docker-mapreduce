@@ -158,7 +158,8 @@ Copie o código abaixo para o arquivo <b>.mrjob.conf </b> e mantenha a identaç�
 ```bash
 runners: 
 	hadoop:
-		python_bin: /home/hadoop/anaconda3/bin/python```
+		python_bin: /home/hadoop/anaconda3/bin/python
+```
 <!-- #endregion -->
 
 O próximo passo é escrever o programa em Python. Criei o AvaliaPedidos.py (código abaixo)
@@ -177,7 +178,7 @@ class MRAvaliaPedidos(MRJob):
 
 if __name__ == '__main__':
     MRAvaliaPedidos.run()
-    ```
+```
 <!-- #endregion -->
 
 #### MRAvaliaPedidos(MRJob)
