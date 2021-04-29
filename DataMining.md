@@ -1,9 +1,6 @@
 # Usando Python com MRJob para gerar jobs MapReduce
 
 
-#### Exercício 2
-
-
 Este artigo foi inspirado no conteúdo do curso de Formação de Cientista de Dados, módulo Engenharia de Dados com Hadoop e Spark na Data Science Academy [http://www.datascienceacademy.com.br](http://www.datascienceacademy.com.br) 
 
 
@@ -189,7 +186,13 @@ Lá está. O arquivo foi gerado com duas colunas, quantidade de repetições e a
 ### Conclusão
 
 
-Abordarmos através dos exercícios [1](https://github.com/carlosemsantana/docker-mapreduce) e [2](https://github.com/carlosemsantana/docker-mapreduce/DataMining.md), como usar o Python com MRJob para gerar de forma simples e executar tarefas MapReduceno ambiente Hadoop.
+Abordarmos através dos exercícios [1](https://github.com/carlosemsantana/docker-mapreduce) e [2](https://github.com/carlosemsantana/docker-mapreduce/DataMining.md), como usar o Python com MRJob para gerar de forma simples e executar tarefas MapReduce no ambiente Hadoop.
+
+```python
+
+```
+
+Artigo: [https://github.com/carlosemsantana/docker-mapreduce](https://github.com/carlosemsantana/docker-mapreduce)
 
 
 Espero ter contribuido com o seu desenvolvimento de alguma forma.

@@ -1,9 +1,6 @@
 # Usando MapReduce em Grandes Volumes de Dados: Job MapReduce
 
 
-#### Exercício 1
-
-
 Este artigo foi inspirado no conteúdo do curso de Formação de Cientista de Dados, módulo Engenharia de Dados com Hadoop e Spark na Data Science Academy [http://www.datascienceacademy.com.br](http://www.datascienceacademy.com.br) 
 
 
