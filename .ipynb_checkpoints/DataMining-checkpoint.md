@@ -180,13 +180,16 @@ Fim do processamento, agora vamos examinar o resultado no arquivo palavras.txt q
 ![](img/palavras-txt.png)
 
 
-Lá está. O arquivo foi gerado com duas colunas, quantidade de repetições e a palavras. Com base nessa informação, você pode dar continuidade ao trabalho, apresentar os resultado ao tomador de desição ou alimentar um dashboard.
+Lá está. O arquivo foi gerado com duas colunas, quantidade de repetições e a palavras. Com base nessa informação, você pode dar continuidade ao trabalho, apresentar os resultado ao tomador de decição ou alimentar um dashboard.
 
 
 ### Conclusão
 
 
-Abordarmos através dos exercícios [1](https://github.com/carlosemsantana/docker-mapreduce) e [2](https://github.com/carlosemsantana/docker-mapreduce/DataMining.md), como usar o Python com MRJob para gerar de forma simples e executar tarefas MapReduceno ambiente Hadoop.
+Abordarmos através dos exercícios [1](https://github.com/carlosemsantana/docker-mapreduce) e [2](https://github.com/carlosemsantana/docker-mapreduce/DataMining.md), como usar o Python com MRJob para gerar de forma simples e executar tarefas MapReduce no ambiente Hadoop.
+
+
+Voltar ao início do Artigo: [https://github.com/carlosemsantana/docker-mapreduce](https://github.com/carlosemsantana/docker-mapreduce)
 
 
 Espero ter contribuido com o seu desenvolvimento de alguma forma.
