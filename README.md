@@ -324,9 +324,9 @@ Abordarmos através de exemplo hipotético simples como Apache Hadoop MapReduce 
 
 O próximo exemplo aborda, como criar um programa para realizar Data Mining em um conjunto de dados não estruturados.
 
-```python
 
-```
+Artigo: [https://github.com/carlosemsantana/docker-mapreduce/blob/main/DataMining.md](https://github.com/carlosemsantana/docker-mapreduce/blob/main/DataMining.md)
+
 
 Espero ter contribuido com o seu desenvolvimento de alguma forma.
 
