@@ -58,7 +58,7 @@ Trabalhar com Apache Hadoop Map Reduce é uma <u>sugestão</u>, alternativamente
 
 Para ilustrarmos este exemplo, vamos aproveitar o dataset gravado no artigo anterior <b>Importando Dados do MySQL para o HDFS com Sqoop</b> e considerar que o ambiente com Hadoop já existe. 
 
-Datasert: [https://github.com/carlosemsantana/docker-mysql-hdfs](https://github.com/carlosemsantana/docker-mysql-hdfs)
+Artigo: [https://github.com/carlosemsantana/docker-mysql-hdfs](https://github.com/carlosemsantana/docker-mysql-hdfs)
 
 
 ### Coleta dos dados
@@ -321,8 +321,11 @@ Pronto. Lá está a resposta que o cliente está aguardando. A próxima etapa de
 
 Abordarmos através de exemplo hipotético simples como Apache Hadoop MapReduce tem a capacidade de fornecer às organizações uma forma eficiente de lidar com o volume. 
 
+
+O próximo exemplo aborda, como criar um programa para realizar Data Mining em um conjunto de dados não estruturados.
+
 ```python
-O próximo exemplo aborda, como criar um programa para realizar Data Mining em um conjunto de dados não estruturados, e contabilizar quantas vezes cada palavra apareceu.
+
 ```
 
 Espero ter contribuido com o seu desenvolvimento de alguma forma.
