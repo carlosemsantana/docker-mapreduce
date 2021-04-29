@@ -1,6 +1,9 @@
 # Usando MapReduce em Grandes Volumes de Dados: Job MapReduce
 
 
+#### Exercício 1
+
+
 Este artigo foi inspirado no conteúdo do curso de Formação de Cientista de Dados, módulo Engenharia de Dados com Hadoop e Spark na Data Science Academy [http://www.datascienceacademy.com.br](http://www.datascienceacademy.com.br) 
 
 
@@ -318,11 +321,14 @@ Pronto. Lá está a resposta que o cliente está aguardando. A próxima etapa de
 
 Abordarmos através de exemplo hipotético simples como Apache Hadoop MapReduce tem a capacidade de fornecer às organizações uma forma eficiente de lidar com o volume. 
 
+```python
+O próximo exemplo aborda, como criar um programa para realizar Data Mining em um conjunto de dados não estruturados, e contabilizar quantas vezes cada palavra apareceu.
+```
 
 Espero ter contribuido com o seu desenvolvimento de alguma forma.
 
 
-[Carlos Eugênio](https://carlosemsantana.github.io/)
+[Carlos Eugênio Moreira de Santana](https://carlosemsantana.github.io/)
 
 
 ### Referências:
@@ -333,3 +339,7 @@ Espero ter contribuido com o seu desenvolvimento de alguma forma.
 - [https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)<br>
 - [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)<br>
 - [https://github.com/Yelp/mrjob](https://github.com/Yelp/mrjob);
+
+```python
+
+```
