@@ -10,9 +10,9 @@ O Hadoop MapReduce é uma ferramenta para escrever aplicativos que processam gra
 ### Hipótese
 
 
-Um cientista de dados é contratado para trabalhar em um projeto de análise com grande volume, na casa de milhões ou bilhões de registros. Aonde irá armazenar e processar esse volume de dados?
+Um cientista de dados é contratado para trabalhar em um projeto de análise com grande volume, na casa de milhões, bilhões ou petabytes de registros. Aonde irá armazenar e processar esse volume de dados?
 
-Se o profissional for trabalhar com banco de dados relacional, não terá ambiente distribuído a sua disposição, e ao executar a tarefa de análise não terá desempenho suficiente para o seu processo, e quando o trabalho estiver sendo processando, com milhões ou bilhões de registros, será inviável. 
+Se o profissional for trabalhar com banco de dados relacional, não terá ambiente distribuído a sua disposição, e ao executar a tarefa de análise não terá desempenho suficiente para o seu processo, e quando o trabalho estiver sendo processando, com yottabytes, será inviável. 
 
 
 ###  Análise de Dados com Hadoop MapReduce
@@ -38,7 +38,7 @@ Trabalharemos neste exemplo, com um conjunto de dados pequeno em um container Do
 Criar um programa para contabilizar quantos registros de transações e-commerce realizados em uma loja virtual na Internet foram aprovados, cancelados e abandonados desde que a loja foi inaugurada.
 
 ### Cenário atual
-O servidor de banco de dados está hospedado em um Provedor de Serviços na Internet, e seu programa deve ser capaz de analisar e processar bilhões de registros.
+O servidor de banco de dados está hospedado em um Provedor de Serviços na Internet, e seu programa deve ser capaz de analisar e processar pentabytes de registros.
 
 
 ### Proposição
